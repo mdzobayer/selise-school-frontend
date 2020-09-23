@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@mixin reset-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+
+// $sizes: 0px, 4px, 8px, 12px, 16px, 20px, 24px, 28px, 32px, 36px, 40px, 44px, 48px, 52px, 56px, 60px;
+
+// @each $size in $sizes {
+//   .padding-#{$size} {
+//     padding: $size;
+//   }
+// }
+
+$index: 0;
+
+@while $index < 402 {
+    .m-#{$index} {
+        margin: 0px + $index;
+    }
+
+    .mt-#{$index} {
+        margin-top: 0px + $index;
+    }
+
+    .mb-#{$index} {
+        margin-bottom: 0px + $index;
+    }
+
+    .ml-#{$index} {
+        margin-left: 0px + $index;
+    }
+
+    .mr-#{$index} {
+        margin-right: 0px + $index;
+    }
+
+    .font-size-#{$index} {
+        font-size: 0px + $index;
+    }
+
+    .line-height-#{$index} {
+        line-height: 0px + $index;
+    }
+
+    .p-#{$index} {
+        padding: 0px + $index;
+    }
+
+    .pt-#{$index} {
+        padding-top: 0px + $index;
+    }
+
+    .pb-#{$index} {
+        padding-bottom: 0px + $index;
+    }
+
+    .pl-#{$index} {
+        padding-left: 0px + $index;
+    }
+
+    .pr-#{$index} {
+        padding-right: 0px + $index;
+    }
+
+    $index : $index + 4;
+}
+
+.bold-text {
+    font-weight: bold;
+}

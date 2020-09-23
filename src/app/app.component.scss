@@ -1,0 +1,113 @@
+
+
+.main {
+    padding: 16px;
+
+    .report {
+
+        .schedule {
+            .item-list {
+                list-style: none;
+                @include reset-margin-padding();
+                background-color: #d3fad3;
+
+                .item {
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: calc(100% - 36px);
+                        height: 1px;
+                        background-color: #414645;
+                        bottom: 0px;
+                        left: 36px;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 1px;
+                        height: 100%;
+                        background-color: #414645;
+                        left: 36px;
+                        top: 0;
+                    }
+
+                    .description {
+                        position: relative;
+
+                        &::after {
+                            font-family: 'Material Icons';
+                            content: 'add_task';
+                            position: absolute;
+                            font-size: 24px;
+                            width: 48px;
+                            height: 48px;
+                            background-color: #0b4b09;
+                            color: #ffffff;
+                            border-radius: 50%;
+                            top: -4px;
+                            left: -44px;
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .overview {
+
+            .overview-header {
+                background: #424242;
+                color: #fff;
+                padding: 16px;
+            }
+    
+            .report-heading {
+                padding: 16px;
+            }
+        }
+    }
+}
+
+table {
+    width: 100%;
+}
+
+p {
+    font-size: 12px;
+    @include reset-margin-padding();
+}
+
+
+// .mat-table {
+//     background: #f8f8f8;
+// }
+
+// .mat-cell, .mat-footer-cell {
+//     color: #3f3f3f;
+// }
+
+// .mat-header-cell {
+//     color: #797979;
+// }
+
+.avatar {
+    min-width: 45px;
+    min-height: 45px;
+    max-width: 45px;
+    max-height: 45px;
+
+    border-radius: 50%;
+    background: #1d8f19;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
