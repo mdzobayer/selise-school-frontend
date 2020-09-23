@@ -1,0 +1,56 @@
+
+@mixin reset-margin-padding {
+    margin: 0;
+    padding: 0;
+}
+
+
+.post {
+
+    .multimedia {
+
+        img {
+            min-width: 200px;
+            min-height: 200px;
+
+            max-width: 500px;
+            max-height: 500px;
+        } 
+    }
+        
+
+    .content {
+        padding: 12px;
+        .header {
+
+            .title {
+                font-size: 20px;
+                color: #4b4a4a;
+            }
+
+            .tags {
+                margin-top: 12px;
+                .tag {
+                    padding: 4px 12px 4px 12px;
+                    border-radius: 8px;
+                    background-color: #2489b8;
+                    color: #ffffff;
+                }
+            }
+
+        }
+
+        .post-body {
+            @include reset-margin-padding();
+            padding: 16px 0px 16px 0px;
+            font-size: 16px;
+            color: #757575;
+        }
+
+        .footer {
+            p {
+                margin-top: 8px;
+            }
+        }
+    }
+}
