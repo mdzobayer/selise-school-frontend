@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { PostComponent } from './post/post.component';
 import { CardComponent } from './card/card.component';
@@ -26,7 +27,8 @@ import { CardComponent } from './card/card.component';
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
