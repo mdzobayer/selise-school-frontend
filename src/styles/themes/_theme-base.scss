@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@mixin theming($theme, $typography: null) {
+    @include angular-material-theme($theme);
+    @if $typography {
+        @include angular-material-typography($typography);
+    }
+}
+
+@mixin dashboard($theme) {
+
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+ 
+
+
+
+    .dashboard-card{
+        background-color: mat-color($background);
+        h1{
+            color: mat-color($warn);
+        }
+    }
+}

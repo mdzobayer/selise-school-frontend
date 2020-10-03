@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [class]="theme">
 
   <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="8px grid">
     <app-card fxFlex="100"></app-card>
@@ -191,5 +191,45 @@
       </div>
     </div>
   </section>
+
+
+  <mat-toolbar fxLayoutAlign="space-between center" color="primary">
+    <h1 class="mat-headline">Welcome to {{ title }}</h1>
+    <mat-form-field>
+        <mat-select (selectionChange)="changeTheme($event)" [(value)]="theme">
+          <mat-option color="primary" value="light-theme">Light Theme</mat-option>
+          <mat-option color="primary" value="dark-theme">Dark Theme</mat-option>
+          <mat-option color="primary" value="green-theme">Green Theme</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-toolbar>
+
+  <!-- <div style="margin-top: 50px" fxLayout="row" fxLayoutAlign="center">
+    <mat-slide-toggle color="accent" [checked]="darkMode$ | async" (change)="setDarkMode($event)">Dark Mode</mat-slide-toggle>
+  </div> -->
+
+  <div  style="width: 500px; margin: 0 auto; margin-top: 50px;">
+    <mat-card style="margin-bottom: 40px;">
+      <div>
+        <button mat-raised-button color="primary">Primary</button>
+        <button mat-raised-button color="accent">Accent</button>
+        <button mat-raised-button color="warn">Warn</button>
+      </div>
+    </mat-card>
+  
+  
+    <mat-card style="margin-bottom: 40px;">
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Select Theme</mat-label>
+        <mat-select (selectionChange)="changeTheme($event)" [(value)]="theme">
+          <mat-option color="primary" value="light-theme">Light Theme</mat-option>
+          <mat-option color="primary" value="dark-theme">Dark Theme</mat-option>
+          <mat-option color="primary" value="green-theme">Green Theme</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
+  
+    <app-dashboard (changeThemeOutput)="changeThemeOutput($event)"></app-dashboard>
+  </div>
 
 </div>

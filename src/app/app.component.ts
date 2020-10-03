@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { ThemeService } from './services/theme.service';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 
 export interface PeriodicElement {
@@ -20,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'selise-school';
 
   departments = [
@@ -33,5 +37,47 @@ export class AppComponent {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  darkMode$: Observable<boolean>;
+
+  overlay: HTMLElement;
+  theme = 'light-theme';
+
+  constructor(
+    private themeService: ThemeService,
+    private overlayContainer: OverlayContainer
+  ) { 
+    this.overlay = overlayContainer.getContainerElement();
+  }
+
+  ngOnInit() {
+    this.darkMode$ = this.themeService.darkMode$;
+    this.overlayContainer.getContainerElement().classList.add(this.theme);
+  }
+
+  setDarkMode({ checked }: MatSlideToggleChange) {
+    this.themeService.setDarkMode(checked);
+  }
+
+  changeTheme(event): void {
+    // if (this.overlay.classList.contains('dark-theme')) {
+    //   this.overlay.classList.remove('dark-theme');
+    //   this.overlay.classList.add('light-theme');
+    // } else if (this.overlay.classList.contains('light-theme')) {
+    //   this.overlay.classList.remove('light-theme');
+    //   this.overlay.classList.add('dark-theme');
+    // } else {
+    //   this.overlay.classList.add('light-theme');
+    // }
+
+    const classlistLength = this.overlay.classList.length;
+    this.overlay.classList.remove(this.overlay.classList[classlistLength - 1]);
+    this.overlay.classList.add(event.value);
+    this.theme = event.value;
+  }
+
+  changeThemeOutput(event) {
+    this.changeTheme(event);
+  }
 
 }
